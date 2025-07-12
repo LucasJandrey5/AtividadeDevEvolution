@@ -7,8 +7,6 @@ use App\models\Tarefa;
 
 class TarefaController
 {
-
-
     public function listar()
     {
 
@@ -48,6 +46,12 @@ class TarefaController
                 'prioridade' => filter_var($_POST['prioridade'] ?? null, FILTER_SANITIZE_STRING),
             ];
 
+            if(empty(str_replace(" ", "", $dadosTarefa['titulo']))) {
+                echo "DEBUG: Dados inválidos para salvar a tarefa.<br>";
+                echo "<h1>Erro ao criar tarefa.</h1><p>Por favor, preencha todos os campos obrigatórios.</p>";
+                return;
+            }
+
             if (isset($_POST['id']) && !empty($_POST['id'])) {
                 $sucesso = $tarefaModel->atualizar($_POST['id'], $dadosTarefa);
             } else {
@@ -82,7 +86,7 @@ class TarefaController
 
             if ($sucesso) {
                 header('Location: index.php?page=tarefas');
-                exit(); // É importante chamar exit() após um header('Location')
+                exit(); 
             } else {
                 echo "DEBUG: Falha ao criar a tarefa.<br>";
                 echo "<h1>Erro ao criar tarefa.</h1><p>Por favor, tente novamente.</p>";

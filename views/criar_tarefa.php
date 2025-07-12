@@ -121,10 +121,10 @@
         <input type="hidden" name="id" value="<?php echo isset($tarefa) ? htmlspecialchars($tarefa['id']) : ''; ?>">
 
         <label for="titulo">Título:</label>
-        <input type="text" name="titulo" id="titulo" required value="<?php echo isset($tarefa) ? htmlspecialchars($tarefa['titulo']) : ''; ?>">
+        <input type="text" name="titulo" id="titulo" placeholder="Digite o titulo aqui..." required value="<?php echo isset($tarefa) ? htmlspecialchars($tarefa['titulo']) : ''; ?>">
 
         <label for="descricao">Descrição:</label>
-        <textarea name="descricao" id="descricao"><?php echo isset($tarefa) ? htmlspecialchars($tarefa['descricao']) : '';  ?></textarea>
+        <textarea name="descricao" id="descricao" placeholder="Digite a descrição..."><?php echo isset($tarefa) ? htmlspecialchars($tarefa['descricao']) : '';  ?></textarea>
 
         <label for="prioridade">Prioridade:</label>
         <select name="prioridade" id="prioridade" required>
@@ -134,7 +134,7 @@
         </select>
 
         <button type="submit">
-            <?php echo isset($tarefa) ? "Editar" : "Criar" ?> Tarefa
+            <?php echo isset($tarefa) ? "Salvar" : "Criar" ?> Tarefa
         </button>
     </form>
 </div>

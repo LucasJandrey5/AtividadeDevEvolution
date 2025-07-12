@@ -1,6 +1,6 @@
 <?php
 
-namespace App\models;
+namespace App\controllers;
 
 use App\services\DB;
 use PDOException;
@@ -44,10 +44,10 @@ abstract class AbstractCrud
     public function criar(array $dados): bool
     {
         $tabela = $this->getTabela();
-        $db = null; // Inicializa a conexão como nula
+        $db = null;
 
         try {
-            $db = DB::conectar(); // Conecta ao banco de dados
+            $db = DB::conectar(); 
 
             $colunasParaInserir = array_keys($dados);
 
@@ -60,10 +60,8 @@ abstract class AbstractCrud
             $sql = "INSERT INTO {$tabela} ({$colunasSql}) VALUES ({$placeholders})";
 
             $stmt = $db->prepare($sql);
-            $sucesso = $stmt->execute($dados); // Executa a consulta, passando os dados diretamente
+            $sucesso = $stmt->execute($dados); 
 
-            // Apenas para fins de depuração, o echo pode ser removido em produção
-            echo "Executando CREATE na tabela '{$tabela}' com dados: " . print_r($dados, true) . "\n";
 
             return $sucesso;
         } catch (PDOException $e) {
@@ -99,12 +97,12 @@ abstract class AbstractCrud
             $setSql = implode(", ", $setClauses);
 
 
-            $sql = "UPDATE {$tabela} SET {$setSql} WHERE id = :id";
+            $sql = "UPDATE {$tabela} SET {$setSql} WHERE id = {$id}";
 
             $stmt = $db->prepare($sql);
 
-            // 4. Executa a consulta
             $sucesso = $stmt->execute($dados);
+            var_dump($dados);
 
             return $sucesso;
         } catch (PDOException $e) {
@@ -128,8 +126,6 @@ abstract class AbstractCrud
             $stmt = $db->prepare($sql);
             $sucesso = $stmt->execute();
             
-            // Apenas para fins de depuração, o echo pode ser removido em produção
-            echo "DEBUG: Executando DELETE na tabela '{$tabela}' para o ID: {$id}<br>";
             return $sucesso;
         } catch (PDOException $e) {
             echo "DEBUG: Exceção PDO capturada em atualizar(): " . htmlspecialchars($e->getMessage()) . "<br>";

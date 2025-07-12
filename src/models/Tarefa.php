@@ -2,7 +2,7 @@
 
 namespace App\models;
 
-use App\models\AbstractCrud;
+use App\controllers\AbstractCrud;
 
 class Tarefa extends AbstractCrud {
 

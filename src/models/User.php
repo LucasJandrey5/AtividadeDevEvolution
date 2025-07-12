@@ -2,7 +2,7 @@
 
 namespace App\models;
 
-use App\models\AbstractCrud;
+use App\controllers\AbstractCrud;
 
 class User extends AbstractCrud {
 
@@ -22,5 +22,7 @@ class User extends AbstractCrud {
     public function getTabela(): string {
         return $this->tabela;
     }
+
+    
 
 }

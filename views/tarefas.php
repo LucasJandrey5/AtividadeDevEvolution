@@ -1,3 +1,6 @@
+<?php 
+    $selectedPriority = isset($_GET['filtro_prioridade']) ? $_GET['filtro_prioridade'] : '0';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,27 +12,23 @@
 <div class="tarefas-container">
     <h1>📋 Gerenciar Tarefas</h1>
 
- <div class="create-task">
-    <a href="?page=criar" class="create-btn">
-        <span class="plus-icon">+</span> Nova Tarefa
-    </a>
-</div>
-
-
-
-    <!-- 🔍 Formulário de Filtro -->
+    <div class="create-task">
+        <a href="?page=criar" class="create-btn">
+            <span class="plus-icon">+</span> Nova Tarefa
+        </a>
+    </div>
+    
     <form method="get" class="filter-form">
         <input type="hidden" name="page" value="tarefas">
         <label>Filtrar por prioridade:</label>
-        <select name="filtro_prioridade" onchange="this.form.submit()">
-            <option value="0">Todas</option>
-            <option value="1">1 - Baixa</option>
-            <option value="2">2 - Média</option>
-            <option value="3">3 - Alta</option>
+        <select name="filtro_prioridade" id="filtro_prioridade" onchange="this.form.submit()">
+            <option value="0" <?php if ($selectedPriority == '0') echo 'selected'; ?>>Todas</option>
+            <option value="1" <?php if ($selectedPriority == '1') echo 'selected'; ?>>1 - Baixa</option>
+            <option value="2" <?php if ($selectedPriority == '2') echo 'selected'; ?>>2 - Média</option>
+            <option value="3" <?php if ($selectedPriority == '3') echo 'selected'; ?>>3 - Alta</option>
         </select>
     </form>
 
-    <!-- 📋 Tabela de Tarefas -->
     <table class="table-tasks">
         <thead>
         <tr>
@@ -70,4 +69,6 @@
     </table>
 </div>
 </body>
+
 </html>
+

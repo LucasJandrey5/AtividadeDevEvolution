@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'ixcsoft/atividade',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '1074dc4c3b2b9334ff4b39906e8d952fbe766f00',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => '8c1a756f7369fa40ca08ebb451d5f99d8a1bc313',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'ixcsoft/atividade' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '1074dc4c3b2b9334ff4b39906e8d952fbe766f00',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '8c1a756f7369fa40ca08ebb451d5f99d8a1bc313',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
