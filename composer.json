@@ -1,0 +1,19 @@
+{
+    "name": "ixcsoft/atividade",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "LucasJandrey5",
+            "email": "lucasjandrey5@gmail.com"
+        },
+        {
+            "name": "Fabrinni",
+            "email": "fabrinnibine@gmail.com"
+        }
+    ],
+    "require": {}
+}
